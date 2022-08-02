@@ -83,6 +83,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DropDown\DropDownService.cs" />
+    <Compile Include="DropDown\IDropDown.cs" />
     <Compile Include="Employee\EmployeeService.cs" />
     <Compile Include="Employee\IEmployee.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

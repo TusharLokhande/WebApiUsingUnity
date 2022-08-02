@@ -46,5 +46,7 @@ namespace Project.Service.Employee
             command.Parameters.AddWithValue("@isActive", SqlDbType.Bit).Value = entity.isActive;
             return _EmpRepository.ExecuteQuery(command);
         }
+
+      
     }
 }

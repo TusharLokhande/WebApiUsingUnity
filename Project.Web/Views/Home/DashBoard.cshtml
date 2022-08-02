@@ -1,0 +1,33 @@
+﻿@model Project.Web.Models.Employee.EmployeeModel
+
+@{
+    ViewBag.Title = "DashBoard";
+}
+
+
+@Styles.Render("~/Custom/DataTables")
+@Scripts.Render("~/Scripts/jquery")
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+
+<table id="table" class="display table">
+    <thead>
+        <tr>
+            <th>@Html.LabelFor(m => m.EName)</th>
+            <th>@Html.LabelFor(m => m.Email)</th>
+            <th>@Html.LabelFor(m => m.DateOfBirth)</th>
+            <th>@Html.LabelFor(m => m.DepartmentName)</th>
+            <th>@Html.LabelFor(m => m.ReportingManagerName)</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody id="body">
+    </tbody>
+</table>
+
+@Scripts.Render("~/Scripts/DataTables")
+@Scripts.Render("~/Scripts/Custom")

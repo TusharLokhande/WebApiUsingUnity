@@ -22,6 +22,31 @@ namespace Project.Web
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+
+            // Custom StyleSheet
+
+            
+
+            //Custom Javascripts
+
+            bundles.Add(new ScriptBundle("~/Scripts/Custom")
+            .IncludeDirectory(
+                     "~/Scripts/Custom/","*.js"
+            ));
+
+            bundles.Add(new ScriptBundle("~/Scripts/jquery")
+            .Include("~/Scripts/jquery-3.4.1.min.js"
+            ));
+
+            bundles.Add(new ScriptBundle("~/Scripts/DataTables")
+                .Include(
+                    "~/Scripts/DataTables/jquery.dataTables.min.js"
+                ));
+
+            bundles.Add(new StyleBundle("~/Custom/DataTables")
+                .IncludeDirectory(
+                    "~/Content/DataTables/css", "*.css"
+                ));
         }
     }
 }

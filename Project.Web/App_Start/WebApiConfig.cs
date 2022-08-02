@@ -1,5 +1,6 @@
 ﻿using Projec.Data.Repository;
 using Project.Core.Entity.Employee;
+using Project.Service.DropDown;
 using Project.Service.Employee;
 using Project.Web.Infrastructure;
 using Project.Web.Models.Employee;
@@ -22,6 +23,7 @@ namespace Project.Web
             var container = new UnityContainer();
             container.RegisterType(typeof(IRepository<>), typeof(BaseRepository<>)); 
             container.RegisterType<IEmployee, EmployeeService>();
+            container.RegisterType<IDropDown, DropDownService>();
             config.DependencyResolver = new UnityResolver(container);
             config.MapHttpAttributeRoutes();
 

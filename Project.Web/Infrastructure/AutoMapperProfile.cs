@@ -16,6 +16,8 @@ namespace Project.Web.Infrastructure
             
             Mapper.CreateMap<EmployeeModel, EmployeeEntity>();
             Mapper.CreateMap<EmployeeEntity, EmployeeModel>();
+            Mapper.CreateMap<DropDownModel, DropDownEntity>();
+            Mapper.CreateMap<DropDownEntity, DropDownModel>();
         }
     }
 }

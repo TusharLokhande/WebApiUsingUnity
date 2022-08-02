@@ -1,4 +1,5 @@
 using Projec.Data.Repository;
+using Project.Service.DropDown;
 using Project.Service.Employee;
 using System.Web.Http;
 using System.Web.Mvc;
@@ -13,12 +14,9 @@ namespace Project.Web
         public static void RegisterComponents()
         {
 			var container = new UnityContainer();
-            
-            
-            
-          
             container.RegisterType(typeof(IRepository<>), typeof(BaseRepository<>));
             container.RegisterType<IEmployee, EmployeeService>();
+            container.RegisterType<IDropDown, DropDownService>();
             DependencyResolver.SetResolver(new Unity.Mvc5.UnityDependencyResolver(container));
             GlobalConfiguration.Configuration.DependencyResolver = new Unity.WebApi.UnityDependencyResolver(container);
         }
