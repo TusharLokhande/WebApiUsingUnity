@@ -11,5 +11,6 @@ namespace Project.Service.Employee
     {
         IEnumerable<EmployeeEntity> GetEmployees(int pageSize, int start, string sortColumn, string sortOrder, string searchText);
         object InsertAndUpdate(EmployeeEntity entity);
+         EmployeeEntity GetEmployeeById(int? id);
     }
 }

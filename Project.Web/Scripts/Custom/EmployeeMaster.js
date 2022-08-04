@@ -24,7 +24,7 @@
                 },
                 { "data": "DepartmentName" },
                 { "data": "ReportingManagerName" },
-                { "render": function (data, type, full, meta) { return `<a class="btn btn-primary" href="/Employee/Create/${full.Id}">Update</a> <a class="btn btn-default" href="/Employee/Create/${full.Id}">Delete</a>` } },
+                { "render": function (data, type, full, meta) { return `<a class="btn btn-primary" href="/home/Create/${full.Id}">Update</a>` } },
             ],
         });
 

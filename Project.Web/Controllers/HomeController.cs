@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Project.Service.DropDown;
+using Project.Service.Employee;
 using Project.Web.Models.Employee;
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,14 @@ namespace Project.Web.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly IEmployee _EmployeeService;
 
+       
+
+        public HomeController(IEmployee EmployeeService)
+        {
+            _EmployeeService = EmployeeService;
+        }
         
         public ActionResult Index()
         {
@@ -25,10 +33,16 @@ namespace Project.Web.Controllers
             return View();
         }
 
-        public ActionResult Create()
+        public ActionResult Create(int? id)
         {
-            return View();
+            EmployeeModel obj = new EmployeeModel();
+            if(id > 0)
+            {
+                obj = Mapper.Map<EmployeeModel>(_EmployeeService.GetEmployeeById(id));
+            }
+            return View(obj);
         }
+
 
        
     }

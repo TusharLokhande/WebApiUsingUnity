@@ -1,27 +1,30 @@
 ﻿$(document).ready(() => {
+    
+
+   
+
+
+    //DropDowns 
     DropDown('dropdown', '#DepartmentId');
     DropDown('reportingmanager', '#ReportingManagerId');
 
-    $("#submit").click((evt) => {
-        evt.preventDefault();
+    
+   
+
+    //Post Calling
+    $("#submit").click((e) => {
+        e.preventDefault();
+        let Id = $("#Id").val();
         let EName = $("#EName").val();
         let Email = $("#Email").val();
         let DateOfBirth = $("#DateOfBirth").val();
         let DepartmentId = $("#DepartmentId").val();
         let ReportingManagerId = $("#ReportingManagerId").val();
-
-        console.log({ EName, Email, DateOfBirth, DepartmentId, ReportingManagerId });
-        let obj = { EName, Email, DateOfBirth, DepartmentId, ReportingManagerId };
-        $.ajax({
-            type: "POST",
-            url: "http://localhost:50866/api/employee/Post",
-            data: obj ,
-            success: function (data) {
-                console.log(data);
-                alert("Save Complete");
-            }
-        });
-    });
+        let data = { Id, EName, Email, DateOfBirth, DepartmentId, ReportingManagerId }
+        console.log(data);
+        Post(data);
+    })
+    
 })
 
 function DropDown(name, id) {
@@ -29,21 +32,25 @@ function DropDown(name, id) {
         type: 'GET',
         dataType: "json",
         url: `http://localhost:50866/api/employee/${name}`,
-        success: function (data, status, xhr) {
+        success: (data) =>{
             let i = '';
             data.map(data => { i = i + `<option value=${data.Id}>${data.Name}</option>`})
-            console.log("done");
             $(id).html(i);
         }
     });
 }
 
-function Tp() {
-    let EName = $("#EName").val();
-    let Email = $("#Email").val();
-    let DateOfBirth = $("#DateOfBirth").val();
-    let DepartmentId = $("#DepartmentId").val();
-    let ReportingManagerId = $("#ReportingManagerId").val
 
-    console.log({ EName, Email, DateOfBirth, DepartmentId, ReportingManagerId });
+
+function Post (obj)  {
+    $.ajax({
+            type: "POST",
+            url: `http://localhost:50866/api/employee/Post/`,
+            data: obj,
+            success: function (data) {
+                console.log(data);
+                window.location.href = '/Home/dashboard';
+            }
+        });
 }
+

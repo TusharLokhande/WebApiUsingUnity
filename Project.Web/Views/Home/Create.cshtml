@@ -14,7 +14,7 @@
     <div class="form-horizontal">
         <h4>EmployeeModel</h4>
         <hr />
-
+        <div hidden>@Html.EditorFor(m => m.Id)</div>
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
             <label class="control-label col-md-2">Enter Name</label>

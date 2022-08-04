@@ -13,7 +13,7 @@ using System.Web.Routing;
 namespace Project.Web.Controllers
 {
 
-    [System.Web.Http.Route("api/{employee}/{action}") ]
+    [Route("api/{employee}/{action}") ]
     public class EmployeeController : ApiController
     {
         private readonly IEmployee _EmployeeService;
@@ -26,26 +26,31 @@ namespace Project.Web.Controllers
 
 
         public IEnumerable<EmployeeModel> Get()
-        {
-           
-            var op = Mapper.Map<IEnumerable<EmployeeModel>>(_EmployeeService.GetEmployees(10, 1, "EName", "ASC", ""));
-            return op;
+        { 
+            var data = Mapper.Map<IEnumerable<EmployeeModel>>(_EmployeeService.GetEmployees(10, 1, "EName", "ASC", ""));
+            return data;
         }
 
         [HttpGet]
         public IEnumerable<DropDownModel> DropDown()
         {
-            var l = Mapper.Map<IEnumerable<DropDownModel>>(_DropDownService.GetDeparmentList());
-            return l;
+            var data = Mapper.Map<IEnumerable<DropDownModel>>(_DropDownService.GetDeparmentList());
+            return data;
         }
         
         [HttpGet]
         public IEnumerable<DropDownModel> reportingmanager()
         {
-            var l = Mapper.Map<IEnumerable<DropDownModel>>(_DropDownService.GetReportingManagerList());
-            return l;
+            var data = Mapper.Map<IEnumerable<DropDownModel>>(_DropDownService.GetReportingManagerList());
+            return data;
         }
 
+        [HttpGet]
+        public EmployeeModel GetEmployeeById(int? Id)
+        {
+            var data = Mapper.Map<EmployeeModel>(_EmployeeService.GetEmployeeById(Id));
+            return data;
+        }
 
         [HttpPost]
         public void Post(EmployeeModel emp)
