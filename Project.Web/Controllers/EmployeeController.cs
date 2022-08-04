@@ -1,14 +1,13 @@
 ﻿using AutoMapper;
+using Project.Core.Entity.Employee;
 using Project.Service.DropDown;
 using Project.Service.Employee;
 using Project.Web.Models.Employee;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
+
 using System.Web.Http;
-using System.Web.Mvc;
 using System.Web.Routing;
 
 namespace Project.Web.Controllers
@@ -33,14 +32,14 @@ namespace Project.Web.Controllers
             return op;
         }
 
-        [System.Web.Http.HttpGet]
+        [HttpGet]
         public IEnumerable<DropDownModel> DropDown()
         {
             var l = Mapper.Map<IEnumerable<DropDownModel>>(_DropDownService.GetDeparmentList());
             return l;
         }
         
-        [System.Web.Http.HttpGet]
+        [HttpGet]
         public IEnumerable<DropDownModel> reportingmanager()
         {
             var l = Mapper.Map<IEnumerable<DropDownModel>>(_DropDownService.GetReportingManagerList());
@@ -48,7 +47,12 @@ namespace Project.Web.Controllers
         }
 
 
-
+        [HttpPost]
+        public void Post(EmployeeModel emp)
+        {
+            var op = Mapper.Map<EmployeeModel, EmployeeEntity>(emp);
+            _EmployeeService.InsertAndUpdate(op);
+        }
 
     }
 }

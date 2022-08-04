@@ -190,7 +190,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\AutoMapperProfile.cs" />
-    <Compile Include="Infrastructure\UnityResolver .cs" />
     <Compile Include="Models\Employee\DropDownModel.cs" />
     <Compile Include="Models\Employee\EmployeeModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

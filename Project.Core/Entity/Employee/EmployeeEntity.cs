@@ -9,7 +9,7 @@ namespace Project.Core.Entity.Employee
 {
     public class EmployeeEntity : BaseEntity
     {
-        public long Id { get; set; }
+        public long Id { get; set; } = 0;
         public long TotalCount { get; set; }
 
         public string EName { get; set; }

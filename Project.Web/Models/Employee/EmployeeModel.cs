@@ -9,19 +9,10 @@ namespace Project.Web.Models.Employee
 {
     public class EmployeeModel:BaseModel
     {
-        #region Lists
-        public List<DropDownModel> Departmentlist { get; set; }
-        #endregion
-
-
-        public EmployeeModel()
-        {
-            Departmentlist = new List<DropDownModel>();
-        }
 
 
         #region Property
-        public long Id { get; set; }
+        public long Id { get; set; } = 0;
         public long TotalCount { get; set; }
 
         public string EName { get; set; }
