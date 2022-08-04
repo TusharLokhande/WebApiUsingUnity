@@ -16,15 +16,11 @@ namespace Project.Web
     public static class WebApiConfig
     {
         public static void Register(HttpConfiguration config)
-        {
-            // Web API configuration and services
-
-            // Web API routes
+        { 
             var container = new UnityContainer();
             container.RegisterType(typeof(IRepository<>), typeof(BaseRepository<>)); 
             container.RegisterType<IEmployee, EmployeeService>();
             container.RegisterType<IDropDown, DropDownService>();
-            //config.DependencyResolver = new UnityResolver(container);
             config.MapHttpAttributeRoutes();
 
             config.Routes.MapHttpRoute(
